@@ -1,0 +1,23 @@
+{
+    "name": "villa/fruti-app",
+    "description": "Proyecto de PHP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Router\\":"./",
+            "Controller\\":"./controllers",
+            "Model\\":"./models",
+            "Clase\\":"./clases"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrés Nehuel",
+            "email": "villagraandres00@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.6",
+        "intervention/image": "^2.7"
+    }
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["admin/home.scss","admin/home.css"],"names":[],"mappings":"AAAA,YACI,WAAA,CACA,YCCJ,CDCA,cACI,WCEJ","file":"home.css","sourcesContent":[".imagen-pre{\r\n    width: 200px;\r\n    height: 200px;\r\n}\r\n.imagen-tabla{\r\n    width: 100px;\r\n}",".imagen-pre {\n  width: 200px;\n  height: 200px;\n}\n\n.imagen-tabla {\n  width: 100px;\n}"]}
