@@ -49,8 +49,8 @@ $router->get('/admin/eliminar',[AdminController::class,'eliminar']);
 $router->post('/admin/eliminar',[AdminController::class,'eliminar']);
 
 //API
-$router->post('/api/productos',[APIController::class,'agregar']);
-$router->get('/api/productos',[APIController::class,'agregar']);
+$router->post('/api/orden',[APIController::class,'orden']);
+$router->get('/api/orden',[APIController::class,'orden']);
 
 
 

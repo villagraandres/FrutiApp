@@ -35,6 +35,27 @@ class mail{
         $this->mail->CharSet = "UTF-8";
         return $this->mail->send();
     }
+
+
+
+    public function avisoOrden(){
+        $this->mail->setFrom("frutiApp@test.com", "Creacion de Cuenta");
+        $this->mail->addAddress('frutiApp@test.com');
+        $this->mail->Subject = "Alguien ha hecho una orden";
+
+
+        $contenido="<html>";
+        $contenido.="<p>Hola un cliente ha hecho una orden para mas detalles consulta la pagina</p>";
+        $contenido.="<p><a href='http://".$_SERVER['HTTP_HOST']."/login'>Ver detalles</a> </p> ";
+      
+        $contenido.="</html>";
+     
+
+        $this->mail->Body = $contenido;
+        $this->mail->isHTML(true);
+        $this->mail->CharSet = "UTF-8";
+        return $this->mail->send();
+    }
 }
 
 ?>

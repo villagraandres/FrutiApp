@@ -89,7 +89,13 @@ class Methods{
        
        
         $resultado=self::$db->query($query);
-        return $resultado;
+       
+     
+         return [
+            'resultado'=>$resultado,
+            'id'=>self::$db->insert_id
+            
+        ]; 
     } 
 
     public static function where($columna,$valor){

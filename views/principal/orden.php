@@ -20,15 +20,15 @@
     <tr id="producto" data-id="<?php echo $producto->id?>" class="Noselected">
       <td> <img src="/build/imagenes/<?php echo $producto->imagen?>" class="imagen-tabla img-fluid" alt=""></td>
       <td><?php echo $producto->nombre?></td>
-      <td><?php echo $producto->precio?></td>
+      <td> <?php echo $producto->precio?>    </td>
       <td>
    
-    <input id="cantidad" type="number" name="cantidad" min="0" max="20">
+    <input id="cantidad" value="0" type="number" name="cantidad" min="0" max="20">
    
     
     
       </td>
-      <td style="display:none"><?php echo $producto->id?> </td>
+      <td style="display:none"><?php echo $producto->id?></td>
      
     </tr>
 <?php endforeach?>
@@ -50,7 +50,7 @@
 
 
 <input type="date" id="fecha" min="<?php echo date("Y-m-d", strtotime('+1 day')  ) ?>">
-<input type="time" id="hora">
+<input type="time" id="hora" >
 <br>
 <button  class="btn btn-primary btn-lg mt-5 text-white" id="boton-orden" >Mostrar Resumen  &Darr; </button>
    
