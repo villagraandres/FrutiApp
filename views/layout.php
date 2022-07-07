@@ -53,17 +53,18 @@ $auth=$_SESSION['nombre'] ?? false;
        
       </ul>
       <?php
-      
+      $id=$_SESSION['id'];
       if($_SESSION['nombre'] ?? false){?>
-    <div class="me-4">
-        <img src="/build/img/cart.png" alt="">
-   </div>
+      <a href="/perfil/ordenes?id=<?php echo $id ?>">
+      <div class="me-4" style="cursor:pointer; ">
+        <img src="/build/img/icons8-persona-de-sexo-masculino-48.png" alt="">
+      </div>
+      </a>
+    
      <a href="/cerrarSesion"><button class="btn btn-danger btn text-white me-4" type="submit">Cerrar Sesión</button></a> 
       
    <?php }else{  ?>
-   <div class="me-4">
-       <img src="/build/img/cart.png" alt="">
-   </div>
+  
         
         
 

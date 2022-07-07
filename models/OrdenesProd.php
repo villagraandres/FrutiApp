@@ -10,6 +10,8 @@ class OrdenesProd extends Methods{
     public $ordenesId;
     public $productoId;
     public $cantidad;
+    public $nombre;
+    public $precio;
 
 
     public function __construct($args=[])
@@ -19,5 +21,7 @@ class OrdenesProd extends Methods{
         $this->cantidad=$args['cantidad']?? '';
         $this->productoId=$args['productoId']?? '';
         $this->cantidad=$args['cantidad']?? '';
+        $this->nombre=$args['nombre']?? '';
+        $this->precio=$args['precio']?? '';
     }
 }

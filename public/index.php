@@ -53,6 +53,14 @@ $router->post('/api/orden',[APIController::class,'orden']);
 $router->get('/api/orden',[APIController::class,'orden']);
 
 
+/* Perfil de usuario */
+
+$router->get('/perfil/ordenes',[InitialController::class,'ordenes']);
+
+
+$router->post('/perfil/detalle-orden',[InitialController::class,'detalles']);
+$router->get('/perfil/detalle-orden',[InitialController::class,'detalles']);
+
 
 
 

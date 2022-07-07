@@ -204,6 +204,12 @@ class Methods{
         }
 
     }
+
+    public static function JOIN($consulta){
+        $query=$consulta;
+       $resultado=self::consultarDB($consulta);
+       return $resultado;
+    }
     
   
 }
