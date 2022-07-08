@@ -5,6 +5,9 @@ namespace Controller;
 use Model\Producto;
 use Router\Router;
 use Intervention\Image\ImageManagerStatic as Image;
+use Model\Orden;
+use Model\OrdenesProd;
+use Model\User;
 
 class AdminController{
 
@@ -189,5 +192,65 @@ class AdminController{
         $router->render('admin/eliminar',[],false);
     }
 
+    public static function ordenes(Router $router){
 
+
+    $alertas=[];
+        if($_GET){
+            
+        if(!is_numeric($_GET['numeroOrden'] ?? null)) return;
+        $numeroOrden=l($_GET['numeroOrden'] ?? null);
+
+        if($numeroOrden>0){
+           $resultado=Orden::where('id',$numeroOrden);
+           if(!$resultado){
+             Orden::setAlerta('error','No hay ninguna orden que coincida');
+           }
+  
+        }else{
+            Orden::setAlerta('error','El numero es invalido');
+        }
+       
+        $alertas=Orden::getAlertas();
+
+        }
+
+
+
+
+
+        $router->render('admin/ordenes',[
+            'alertas'=>$alertas,
+            'orden'=>$resultado ?? ''
+        ],false);
+    }
+
+    public static function detalles(Router $router){
+
+
+                 
+    if(!is_numeric($_GET['id'])) return;
+
+
+   
+    $id=l($_GET['id']);
+    
+
+     //Consultar la DB
+     $consulta="SELECT productos.nombre, ordenesproductos.cantidad,productos.precio FROM ordenes LEFT OUTER JOIN ordenesproductos ON ordenes.id=ordenesproductos.ordenesId 
+     LEFT OUTER JOIN productos ON productos.id=ordenesproductos.productoId WHERE ordenes.id=$id";
+    
+    $resultado= OrdenesProd::JOIN($consulta);
+
+        
+    $usuarioId=l($_GET['usuarioId']);
+    $resultadoUsuario=User::where('id',$usuarioId);
+  
+
+
+    $router->render('admin/detalles-orden',[
+        'productos'=>$resultado,
+        'usuario'=>$resultadoUsuario
+    ],false);
+    }
 }

@@ -25,3 +25,16 @@ function valirRedireccionar(){
     }
     return $id;
 }
+
+/* Validar que sea el usuario */
+
+function validarUsuario($idGet){
+    session_start();
+    $id=$_SESSION['id'];
+
+    if($id===$idGet){
+      
+    }else{
+        header('Location: /');
+    }
+}

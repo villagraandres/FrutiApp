@@ -1,12 +1,14 @@
 <?php
 require_once __DIR__ . '/../includes/app.php';
+
+
 use Router\Router;
 use Controller\InitialController;
 use Controller\LoginController;
 use Controller\AdminController;
 use Controller\APIController;
 
-$router=new Router;
+$router=new Router();
 
 $router->get('/',[InitialController::class,'index']);
 $router->get('/nosotros',[InitialController::class,'nosotros']);
@@ -47,6 +49,13 @@ $router->post('/admin/actualizar',[AdminController::class,'actualizar']);
 
 $router->get('/admin/eliminar',[AdminController::class,'eliminar']);
 $router->post('/admin/eliminar',[AdminController::class,'eliminar']);
+
+
+$router->get('/admin/ordenes',[AdminController::class,'ordenes']);
+
+$router->get('/admin/detalle-orden',[AdminController::class,'detalles']);
+
+
 
 //API
 $router->post('/api/orden',[APIController::class,'orden']);

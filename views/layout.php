@@ -53,7 +53,7 @@ $auth=$_SESSION['nombre'] ?? false;
        
       </ul>
       <?php
-      $id=$_SESSION['id'];
+      $id=$_SESSION['id'] ?? null;
       if($_SESSION['nombre'] ?? false){?>
       <a href="/perfil/ordenes?id=<?php echo $id ?>">
       <div class="me-4" style="cursor:pointer; ">

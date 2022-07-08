@@ -16,10 +16,10 @@
 
 </div>
 
-<!-- <?php
+ <?php
     $script="
     <script src='build/js/producto.js'></script>
     <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
     "
     
-    ?> -->
+    ?> 

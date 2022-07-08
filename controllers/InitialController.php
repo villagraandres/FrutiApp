@@ -80,6 +80,7 @@ class InitialController{
     if(!is_numeric($_GET['id'])) return;
    
     $id=l($_GET['id']);
+    validarUsuario($id);
 
     $usuario=User::where('id',$id);
 
@@ -102,13 +103,14 @@ class InitialController{
 
    
     $id=l($_GET['id']);
+    
 
      //Consultar la DB
      $consulta="SELECT productos.nombre, ordenesproductos.cantidad,productos.precio FROM ordenes LEFT OUTER JOIN ordenesproductos ON ordenes.id=ordenesproductos.ordenesId 
-     LEFT OUTER JOIN productos ON productos.id=ordenesproductos.productoId WHERE ordenes.id=78";
-
+     LEFT OUTER JOIN productos ON productos.id=ordenesproductos.productoId WHERE ordenes.id=$id";
+    
     $resultado= OrdenesProd::JOIN($consulta);
-
+  
 
     //Obtener el id del cliente para regresarlo a su home page
     session_start();

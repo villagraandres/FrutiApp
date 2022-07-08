@@ -23,19 +23,19 @@
             <li>
               <a href="/admin" class="admin-nav nav-link text-white">
                 
-                Home
+                Productos
               </a>
             </li>
             <li>
-              <a href="/admin/productos" class="admin-nav nav-link text-white">
+              <a href="/admin/ordenes" class="admin-nav nav-link text-white">
                 
-                Productos
+                Ordenes
               </a>
             </li>
             
             <li>
               <a href="#" class="admin-nav nav-link text-white">
-                Blog
+                Cuentas
               </a>
             </li>
             
