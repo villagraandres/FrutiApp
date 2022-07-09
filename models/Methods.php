@@ -150,6 +150,13 @@ class Methods{
         return $resultado;
 
     }
+    public function eliminarOrden(){
+        $query="DELETE FROM ". static::$tabla." WHERE id=". self::$db->escape_string($this->id) ." LIMIT 1";
+        
+        $resultado=self::$db->query($query);
+        return $resultado;
+
+    }
     public function borrrarImg($ruta){
         $existe=file_exists($ruta.$this->imagen);
         if($existe){

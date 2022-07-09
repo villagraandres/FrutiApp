@@ -10,15 +10,15 @@ class mail{
         $this->mail = new PHPMailer();
         $this->mail->isSMTP();
         $this->mail->SMTPAuth = true;
-        $this->mail->Host = "smtp.mailtrap.io";
-        $this->mail->Port = 2525;
-        $this->mail->Username = "d98386aff043cd";
-        $this->mail->Password = "ad9a6874b4b037";
+        $this->mail->Host = "smtp.gmail.com";
+        $this->mail->Port = 587;
+        $this->mail->Username = "frutiapptest@gmail.com";
+        $this->mail->Password = "frefjrfunavlrjyq";
     }
 
 
     public function metEnviar( string $nombre, string $correo, $token  ){
-        $this->mail->setFrom("villagraandres00@gmail.com", "Creacion de Cuenta");
+        $this->mail->setFrom("frutiapptest@gmail.com", "Creacion de Cuenta");
         $this->mail->addAddress($correo,$nombre);
         $this->mail->Subject = "Confirmacion de Cuenta";
 
@@ -39,8 +39,8 @@ class mail{
 
 
     public function avisoOrden(){
-        $this->mail->setFrom("frutiApp@test.com", "Creacion de Cuenta");
-        $this->mail->addAddress('frutiApp@test.com');
+        $this->mail->setFrom("frutiapptest@gmail.com", "Creacion de Cuenta");
+        $this->mail->addAddress('frutiapptest@gmail.com','Admin');
         $this->mail->Subject = "Alguien ha hecho una orden";
 
 
@@ -56,6 +56,30 @@ class mail{
         $this->mail->CharSet = "UTF-8";
         return $this->mail->send();
     }
+
+
+    
+    public function mensaje( string $nombre, string $correo, $mensaje  ){
+        $this->mail->setFrom("frutiapptest@gmail.com", "Nuevo Mensaje");
+        $this->mail->addAddress("frutiapptest@gmail.com", " Admin");
+        $this->mail->Subject = "Confirmacion de Cuenta";
+
+
+        $contenido="<html>";
+        $contenido.="<p>Has recibido un nuevo mensaje de <strong> ".$nombre."</strong></p>";
+       
+        $contenido.="<p>Mensaje: ".$mensaje." </p> ";
+        $contenido.="<p>Correo: ".$correo." </p> ";
+        
+        $contenido.="</html>";
+     
+
+        $this->mail->Body = $contenido;
+        $this->mail->isHTML(true);
+        $this->mail->CharSet = "UTF-8";
+        return $this->mail->send();
+    }
+
 }
 
 ?>

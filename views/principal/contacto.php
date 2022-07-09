@@ -1,8 +1,9 @@
 <div class="container">
     <h1 class="text-center">Quieres decirnos algo?</h1>
     <h5 class="text-center">Llena el siguiente formulario y trataremos de respondente lo mas rapido posible!</h5>
+    <?php include_once __DIR__ . "/../templates/alertas.php";?>
 
-    <form action="POST" class="mt-5">
+    <form method="POST" class="mt-5">
         <fieldset>
             <legend  class="text-center">Datos Personales</legend>
 
@@ -24,7 +25,7 @@
             <legend  class="text-center">Mensaje</legend>
 
         <div class="form-floating mb-4">
-             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+             <textarea name="mensaje" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
              <label for="floatingTextarea2">Comments</label>
         </div>
             <!-- Campo -->
@@ -33,6 +34,15 @@
             
         </fieldset>
 
-        <input type="submit" class="btn btn-primary btn-lg">
+        <input type="submit" class="btn btn-primary btn-lg text-white">
     </form>
 </div>
+
+<script>
+   const alerta=document.querySelector('.exito');
+   if(alerta){
+    setTimeout(() => {
+          alerta.remove();
+      }, 2000);
+   }
+</script>

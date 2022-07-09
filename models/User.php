@@ -51,6 +51,8 @@ public function __construct($args=[])
         return self::$alertas;
     }
 
+    
+
     public function existe($correo){
         $query=" SELECT * FROM usuarios WHERE email='$correo' LIMIT 1 ";
         

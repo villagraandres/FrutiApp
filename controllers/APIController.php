@@ -6,6 +6,7 @@ use Clase\mail;
 use Model\Methods;
 use Model\Orden;
 use Model\OrdenesProd;
+use Model\User;
 
 class APIController{
 
@@ -41,5 +42,22 @@ class APIController{
     //Converitmos string a arreglo
   echo json_encode(['resultado'=>$resultado]); 
 }
+public static function eliminar(){
+  if ($_SERVER['REQUEST_METHOD']==='POST') {
+    $id=$_POST['id'];
+    $orden=Orden::where('id',$id);
+    $orden->eliminarOrden();
+    echo json_encode(['resultado'=>$_POST]);
+  }
+}
 
+public static function eliminarCuenta(){
+  if ($_SERVER['REQUEST_METHOD']==='POST') {
+    $id=$_POST['id'];
+    $orden=User::where('id',$id);
+    $orden->eliminarOrden();
+    echo json_encode(['resultado'=>$_POST]);
+  }
+}
 } 
+

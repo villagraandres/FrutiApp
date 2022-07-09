@@ -38,3 +38,13 @@ function validarUsuario($idGet){
         header('Location: /');
     }
 }
+
+function validarAdmin(){
+    session_start();
+    $admin=$_SESSION['rol'];
+    if($admin==1){
+
+    }else{
+        header('Location: /');
+    }
+}

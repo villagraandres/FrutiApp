@@ -1,6 +1,7 @@
 <?php
 namespace Controller;
 
+use Clase\mail;
 use Model\Orden;
 use Model\OrdenesProd;
 use Model\Producto;
@@ -14,7 +15,7 @@ class InitialController{
       $productosClientes=Producto::whereAll('seccion',1,3);
       $productosOrganicos=Producto::whereAll('seccion',2,3);
 
-     
+   
 
 
       $router->render('principal/index',[
@@ -29,9 +30,51 @@ class InitialController{
 
     }
     public static function contacto(Router $router){
+       $alertas=[];
+       $resultado=$_GET['resultado'] ?? '';
        
+       if($resultado==1){
+        $alertas=User::setAlerta('exito','Mensaje Enviado Correctamente');
+       }
 
-      $router->render('principal/contacto');
+
+      if($_SERVER['REQUEST_METHOD']==='POST'){
+        
+        //Validar
+        if(!$_POST['nombre']){
+          $alertas= User::setAlerta('error','El nombre es obligatorio');
+        }
+        if(!$_POST['email']){
+          $alertas= User::setAlerta('error','El nombre es obligatorio');
+        }
+        if(!$_POST['mensaje']){
+          $alertas= User::setAlerta('error','El mensaje es obligatorio');
+        }
+
+        $correo=$_POST['email'] ?? '';
+        $nombre=$_POST['nombre'] ?? '';
+        $mensaje=$_POST['mensaje'] ?? '';
+
+        
+      if(empty($alertas)){
+        $mail= new mail();
+        $resultado= $mail->mensaje($nombre,$correo,$mensaje);
+        if($resultado){
+          header('Location: /contacto?resultado=1');
+        }
+      }
+
+      }
+      
+
+
+      $alertas=User::getAlertas();
+
+
+
+      $router->render('principal/contacto',[
+        'alertas'=>$alertas
+      ]);
 
   }
 

@@ -11,16 +11,12 @@ use Model\User;
 
 class AdminController{
 
-    public static function index(Router $router){
-
-
-        $router->render('admin/index',[],false);  
-    }
-
+  
 
 
     public static function productos(Router $router){
 
+       validarAdmin();
         $producto= new Producto();
        $productos= $producto->all();
        
@@ -76,6 +72,7 @@ class AdminController{
     }
 
     public static function crear(Router $router){
+        validarAdmin();
         $producto=new Producto();
         $alertas=[];
 
@@ -130,6 +127,7 @@ class AdminController{
     }
 
     public static function actualizar(Router $router){
+        validarAdmin();
         $alertas=[];
         
         if(!is_numeric($_GET['id'])) return;
@@ -182,21 +180,13 @@ class AdminController{
         ],false);
     }
 
-    public static function eliminar(Router $router){
-
-        $producto=Producto::where('id',$_GET['id']);
-        $actual= CARPETA_IMG.$producto->imagen;
-        $siguiente=CARPETA_IMG2.$producto->imagen;
-        rename($actual,$siguiente );
-        
-        $router->render('admin/eliminar',[],false);
-    }
 
     public static function ordenes(Router $router){
 
-
+        validarAdmin();
     $alertas=[];
-        if($_GET){
+
+        if($_GET['numeroOrden'] ?? ''){
             
         if(!is_numeric($_GET['numeroOrden'] ?? null)) return;
         $numeroOrden=l($_GET['numeroOrden'] ?? null);
@@ -215,19 +205,39 @@ class AdminController{
 
         }
 
+        if($_GET['fecha'] ?? ''){
+            $fecha=l($_GET['fecha'] ?? null);
+
+            if($fecha){
+                $resultadoFecha=Orden::where('fecha',$fecha);
+                if(!$resultadoFecha){
+                    Orden::setAlerta('error','No hay ninguna orden que coincida');
+                }
+            }
+            $alertas=Orden::getAlertas();
+
+        }
+
+        if($_SERVER['REQUEST_METHOD']==='POST'){
+
+            $resultadoAll=Orden::all();
+          
+        }
 
 
 
 
         $router->render('admin/ordenes',[
             'alertas'=>$alertas,
-            'orden'=>$resultado ?? ''
+            'orden'=>$resultado ?? '',
+            'ordenFecha'=>$resultadoFecha ?? '',
+            'ordenAll'=>$resultadoAll ?? ''
         ],false);
     }
 
     public static function detalles(Router $router){
 
-
+        validarAdmin();
                  
     if(!is_numeric($_GET['id'])) return;
 
@@ -252,5 +262,77 @@ class AdminController{
         'productos'=>$resultado,
         'usuario'=>$resultadoUsuario
     ],false);
+    }
+
+    public static function cuenta(Router $router){
+        validarAdmin();
+        $alertas=[];
+
+        $resultado=$_GET['resultado'] ?? '';
+
+        switch ($resultado) {
+            case 1:
+                $alertas=Producto::setAlerta('exito','La cuenta ha sido creada correctamente');
+                break;
+
+              
+
+                 case 2:
+                     $alertas=Producto::setAlerta('exito','La cuenta ha sido eliminada correctamente');
+                    break;
+            
+            
+            default:
+                # code...
+                break;
+        }
+
+
+
+        $usuario= new User();
+        if($_SERVER['REQUEST_METHOD']==='POST'){
+
+           
+           $usuario= new User($_POST);
+         $alertas=  $usuario->validarLogin();
+
+           if(empty($alertas)){
+            $resultado= $usuario->existe($usuario->email);
+            if($resultado->num_rows){
+                $alertas=User::getAlertas();
+            }else{
+                 //Haseheamos
+                 $usuario->hash();
+                 //damos rol de admin
+                 $usuario->rol=1;
+                 $usuario->confirmado=1;
+                 $resultado= $usuario->crear();  
+                 header('Location:/admin/cuenta?resultado=1');
+            }
+           }
+        }
+
+        $usuariosAdmin=User::whereAll('rol',1,100);
+        
+        
+        $alertas=User::getAlertas();
+
+        $router->render('admin/cuenta',[
+            'alertas'=>$alertas,
+            'usuariosAdmin'=>$usuariosAdmin
+        ],false);
+    }
+
+    public static function eliminar(){
+        validarAdmin();
+        $cuenta=User::where('id',$_GET['id']);
+
+        debuguear($cuenta);
+  
+      $resultado= $cuenta->eliminarOrden();
+      if($resultado){
+        header('Location: /admin/cuenta?resultado=2');
+      }
+                
     }
 }

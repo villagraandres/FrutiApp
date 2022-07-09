@@ -12,9 +12,15 @@ $router=new Router();
 
 $router->get('/',[InitialController::class,'index']);
 $router->get('/nosotros',[InitialController::class,'nosotros']);
+
+
 $router->get('/contacto',[InitialController::class,'contacto']);
 $router->post('/contacto',[InitialController::class,'contacto']);
+
 $router->post('/producto',[InitialController::class,'producto']);
+
+
+
 $router->get('/producto',[InitialController::class,'producto']);
 
 /* Ordenes */
@@ -30,7 +36,12 @@ $router->get('/registro',[LoginController::class,'registro']);
 $router->post('/registro',[LoginController::class,'registro']);
 
 $router->get('/confirmar',[LoginController::class,'confirmar']);
+
+
 $router->get('/mensaje',[LoginController::class,'mensaje']);
+
+
+
 $router->get('/cerrarSesion',[LoginController::class,'cerrarSesion']);
 
 
@@ -52,14 +63,26 @@ $router->post('/admin/eliminar',[AdminController::class,'eliminar']);
 
 
 $router->get('/admin/ordenes',[AdminController::class,'ordenes']);
+$router->post('/admin/ordenes',[AdminController::class,'ordenes']);
 
 $router->get('/admin/detalle-orden',[AdminController::class,'detalles']);
+
+
+$router->get('/admin/cuenta',[AdminController::class,'cuenta']);
+$router->post('/admin/cuenta',[AdminController::class,'cuenta']);
+
+$router->post('/admin/cuenta/eliminar',[AdminController::class,'eliminar']);
+$router->get('/admin/cuenta/eliminar',[AdminController::class,'eliminar']);
+
 
 
 
 //API
 $router->post('/api/orden',[APIController::class,'orden']);
 $router->get('/api/orden',[APIController::class,'orden']);
+
+$router->post('/api/eliminar',[APIController::class,'eliminar']);
+$router->post('/api/eliminarCuenta',[APIController::class,'eliminarCuenta']);
 
 
 /* Perfil de usuario */
