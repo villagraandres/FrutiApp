@@ -18,10 +18,9 @@ $router->get('/contacto',[InitialController::class,'contacto']);
 $router->post('/contacto',[InitialController::class,'contacto']);
 
 $router->post('/producto',[InitialController::class,'producto']);
-
-
-
 $router->get('/producto',[InitialController::class,'producto']);
+
+$router->get('/productos',[InitialController::class,'productos']);
 
 /* Ordenes */
 $router->post('/orden',[InitialController::class,'orden']);

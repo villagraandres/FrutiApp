@@ -50,6 +50,10 @@ $auth=$_SESSION['nombre'] ?? false;
         <li class="nav-item">
           <a class="nav-link text-white" href="/contacto">Contacto</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/productos">Productos</a>
+        </li>
        
       </ul>
       <?php

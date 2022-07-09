@@ -96,6 +96,14 @@ class InitialController{
     ]);
   }
 
+  public static function productos(Router $router){
+    $productos= Producto::all();
+   
+    $router->render('principal/productos',[
+      'productos'=>$productos
+    ]);
+  }
+
   public static function orden(Router $router){
 
     $productos=Producto::all();
