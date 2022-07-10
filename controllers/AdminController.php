@@ -105,7 +105,7 @@ class AdminController{
             }
         /*   $Image->save(CARPETA_IMG.$nombreImagen); */
           
-          debuguear( $Image->save(CARPETA_IMG.$nombreImagen)); 
+        /*   debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
        
 
            $resultado= $producto->crear();
