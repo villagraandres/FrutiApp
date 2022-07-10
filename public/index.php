@@ -82,6 +82,7 @@ $router->get('/api/orden',[APIController::class,'orden']);
 
 $router->post('/api/eliminar',[APIController::class,'eliminar']);
 $router->post('/api/eliminarCuenta',[APIController::class,'eliminarCuenta']);
+$router->post('/api/eliminarProducto',[APIController::class,'eliminarProducto']);
 
 
 /* Perfil de usuario */

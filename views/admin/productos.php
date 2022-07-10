@@ -46,37 +46,9 @@ use Model\Producto;
                 <br> 
 
 
-
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Eliminar
-              </button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro que deseas eliminar este producto?</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Estos cambios son irrevertibles
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      <form method="POST">
-
-                      <input type="hidden" name="id" value="<?php echo $producto->id  ?>">
-                      <input type="submit" class="btn btn-danger" value="Eliminar">
-                     
-                      </form>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
+               
+       <button  class="btn btn-danger text-white mt-2 eliminar-orden "  data-producto="<?php echo $producto->id?>"  >Eliminar Orden</button>
+      
     </td>
       
     </tr>
@@ -87,3 +59,9 @@ use Model\Producto;
   </tbody>
 </table>
 </div>
+<?php
+$script="
+    <script src='/build/js/cuentas.js'></script>
+    <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    "
+?>

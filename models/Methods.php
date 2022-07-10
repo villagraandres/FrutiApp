@@ -163,12 +163,7 @@ class Methods{
             chown(CARPETA_IMG.$this->imagen, 666);
            
            $result=  unlink($ruta.$this->imagen); 
-           if(!$result){
-            chmod($ruta.$this->imagen,0777); 
-            
-            unlink($ruta.$this->imagen);
-            
-           }
+           
         }
     }
     public function setImagen($imagen,$ruta){

@@ -21,7 +21,7 @@ class AdminController{
        $productos= $producto->all();
        
 
-       if($_SERVER['REQUEST_METHOD']==='POST'){
+      /*  if($_SERVER['REQUEST_METHOD']==='POST'){
         $id=$_POST['id'];
         $id=filter_var($id,FILTER_VALIDATE_INT);
         if($id){
@@ -32,8 +32,10 @@ class AdminController{
         header('Location: /admin?resultado=3');
        }
         }
-     }
+     } */
+
       
+        
         $resultado=$_GET['resultado'] ?? '';
         switch ($resultado) {
             case 1:
@@ -102,9 +104,9 @@ class AdminController{
                 mkdir(CARPETA_IMG);
             }
         /*   $Image->save(CARPETA_IMG.$nombreImagen); */
-             chmod(CARPETA_IMG.$nombreImagen,777);
-            $Image->save(CARPETA_IMG.$nombreImagen);
-            chmod(CARPETA_IMG.$nombreImagen,777);
+          
+          debuguear( $Image->save(CARPETA_IMG.$nombreImagen)); 
+       
 
            $resultado= $producto->crear();
             if($resultado){

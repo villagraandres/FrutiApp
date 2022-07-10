@@ -6,6 +6,7 @@ use Clase\mail;
 use Model\Methods;
 use Model\Orden;
 use Model\OrdenesProd;
+use Model\Producto;
 use Model\User;
 
 class APIController{
@@ -55,6 +56,15 @@ public static function eliminarCuenta(){
   if ($_SERVER['REQUEST_METHOD']==='POST') {
     $id=$_POST['id'];
     $orden=User::where('id',$id);
+    $orden->eliminarOrden();
+    echo json_encode(['resultado'=>$_POST]);
+  }
+}
+
+public static function eliminarProducto(){
+  if ($_SERVER['REQUEST_METHOD']==='POST') {
+    $id=$_POST['id'];
+    $orden=Producto::where('id',$id);
     $orden->eliminarOrden();
     echo json_encode(['resultado'=>$_POST]);
   }
