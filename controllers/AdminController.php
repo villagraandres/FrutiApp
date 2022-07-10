@@ -82,7 +82,7 @@ class AdminController{
            
             $producto->sincronizar($_POST);
         
-                
+           /*      
             if($_FILES['imagen']['tmp_name']) {
             $nombreImagen = md5( uniqid()).".jpg";
                //Generar nombre
@@ -92,22 +92,22 @@ class AdminController{
               
                
               
-            }
+            } */
 
              $alertas=  $producto->validar();
 
 
            if(empty($alertas)){
 
-            if(!is_dir(CARPETA_IMG)){
+       /*      if(!is_dir(CARPETA_IMG)){
                 chmod(CARPETA_IMG, 777);
                 mkdir(CARPETA_IMG);
             }
         /*   $Image->save(CARPETA_IMG.$nombreImagen); */
           
-        /*   debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
+          /* debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
        
-
+ 
            $resultado= $producto->crear();
             if($resultado){
                 header('Location: /admin?resultado=1');
