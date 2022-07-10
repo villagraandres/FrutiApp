@@ -94,10 +94,10 @@ class AdminController{
               
             } */
 
-             $alertas=  $producto->validar();
+            
 
 
-           if(empty($alertas)){
+          /*  if(empty($alertas)){ */
 
        /*      if(!is_dir(CARPETA_IMG)){
                 chmod(CARPETA_IMG, 777);
@@ -114,7 +114,7 @@ class AdminController{
             }
 
 
-           }
+           
 
 
 
