@@ -30,7 +30,7 @@ use Model\Producto;
       <th scope="row"><?php echo $producto->id ?></th>
       <td><?php echo $producto->nombre ?></td>
       <td>
-        <img src="/build/imagenes/<?php echo $producto->imagen ?>" class="imagen-tabla img-fluid" alt="">
+        <img src="/imagenes/<?php echo $producto->imagen ?>" class="imagen-tabla img-fluid" alt="">
       
       </td>
       <td><?php echo $producto->precio ?></td>

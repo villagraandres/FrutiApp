@@ -82,31 +82,33 @@ class AdminController{
            
             $producto->sincronizar($_POST);
         
-           /*      
+            $imagen=$_FILES['imagen'];
             if($_FILES['imagen']['tmp_name']) {
             $nombreImagen = md5( uniqid()).".jpg";
+            
                //Generar nombre
-               $Image=Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
-               //Setear img
-               $producto->setImagen($nombreImagen,CARPETA_IMG);
+              /*  $Image=Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+               //Setear img*/
+               $producto->setImagen($nombreImagen,CARPETA_IMG); 
               
                
               
-            } */
-
-            
-
-
-          /*  if(empty($alertas)){ */
-
-       /*      if(!is_dir(CARPETA_IMG)){
-                chmod(CARPETA_IMG, 777);
-                mkdir(CARPETA_IMG);
             }
-        /*   $Image->save(CARPETA_IMG.$nombreImagen); */
+
+             $alertas=  $producto->validar();
+
+
+           if(empty($alertas)){
+            $carpetaImagenes = 'imagenes/';
+       
+            if(!is_dir($carpetaImagenes)) {
+                mkdir($carpetaImagenes);
+            }
+
           
           /* debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
        
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
  
            $resultado= $producto->crear();
             if($resultado){
@@ -114,7 +116,7 @@ class AdminController{
             }
 
 
-           
+           }
 
 
 
