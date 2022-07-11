@@ -22,7 +22,7 @@ $auth=$_SESSION['nombre'] ?? false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/build/css/app.css" >   
     
-     <title>Document</title>
+     <title>FrutiApp</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@ $auth=$_SESSION['nombre'] ?? false;
   <div class="container-fluid">
   <a  class="navbar-brand mr text-black text-white " href="/">
     <img src="/build/img/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-    Bootstrap
+    FrutiApp
   </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -102,11 +102,12 @@ echo $contenido;
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="/nosotros" class="nav-link px-2 text-muted">Nosotros</a></li>
+      <li class="nav-item"><a href="/contacto" class="nav-link px-2 text-muted">Contacto</a></li>
+      <li class="nav-item"><a href="/productos" class="nav-link px-2 text-muted">Productos</a></li>
+      <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Iniciar Sesión</a></li>
+      <li class="nav-item"><a href="/registro" class="nav-link px-2 text-muted">Registrarse</a></li>
     </ul>
   </footer>
 </div>

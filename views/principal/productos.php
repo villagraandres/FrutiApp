@@ -6,7 +6,7 @@
 
     <div class="col-12 col-md-6 col-lg-4 mb-3">
     <div class="card" style="width: 18rem;">
-    <img src="/build/imagenes/<?php echo $productoCliente->imagen ?>" class="card-img-top" alt="...">
+    <img src="/imagenes/<?php echo $productoCliente->imagen ?>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><?php echo $productoCliente->nombre ?></h5>
       <p class="card-text"><?php echo $productoCliente->resumen ?></p>

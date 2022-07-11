@@ -16,7 +16,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/admin" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-decoration-none text-secondary">
           <img  src="/build/img/logo.png" width="50" height="50" class="d-inline-block align-top me-2" alt="">
-             Bootstrap
+             FrutiApp
           </a>
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -68,11 +68,11 @@
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <li class="nav-item"><a href="/admin" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="/admin/ordenes" class="nav-link px-2 text-muted">Ordenes</a></li>
+      <li class="nav-item"><a href="/admin/cuenta" class="nav-link px-2 text-muted">Cuenta</a></li>
+      <li class="nav-item"><a href="/cerrarSesion" class="nav-link px-2 text-muted">Cerrar Sesión</a></li>
+
     </ul>
   </footer>
 </div>

@@ -43,6 +43,13 @@ $router->get('/mensaje',[LoginController::class,'mensaje']);
 
 $router->get('/cerrarSesion',[LoginController::class,'cerrarSesion']);
 
+$router->get('/recuperar',[LoginController::class,'recuperar']);
+$router->post('/recuperar',[LoginController::class,'recuperar']);
+
+$router->get('/reestablecer',[LoginController::class,'reestablecer']);
+$router->post('/reestablecer',[LoginController::class,'reestablecer']);
+
+
 
 
 //Zona de administracion

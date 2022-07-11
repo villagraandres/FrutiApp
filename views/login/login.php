@@ -17,4 +17,20 @@
 
          
     </form>
+    <div class="mt-5" style="display:flex ; justify-content:space-between;">
+      <a href="/registro"><p>Aun no tienes cuenta? Crea una</p></a>  
+
+      <a href="/recuperar"><p>Olvidaste tu contraseña?</p></a>  
+   
+    </div>
+   
 </div>
+
+<script>
+   const alerta=document.querySelector('.exito');
+   if(alerta){
+    setTimeout(() => {
+          alerta.remove();
+      }, 2000);
+   }
+</script>

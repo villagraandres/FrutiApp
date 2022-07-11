@@ -84,11 +84,10 @@ class AdminController{
         
            
             if($_FILES['imagen']['tmp_name']) {
-                $Image=Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+                
                 $imagen=$_FILES['imagen'];
             $nombreImagen = md5( uniqid()).".jpg";
             
-               //Generar nombre
               /*  $Image=Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
                //Setear img*/
                $producto->setImagen($nombreImagen,CARPETA_IMG); 
@@ -109,9 +108,9 @@ class AdminController{
 
           
           /* debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
-          $Image->save('imagenes/'.$nombreImagen);
-           /*  move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
-  */
+       
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+ 
            $resultado= $producto->crear();
             if($resultado){
                 header('Location: /admin?resultado=1');

@@ -2,7 +2,7 @@
 
 <div class="container nosotros-container">
    
-<img src="/build/imagenes/<?php echo $producto->imagen ?>" class="card-img-top" alt="...">
+<img src="/imagenes/<?php echo $producto->imagen ?>" class="producto-img" alt="...">
     <section class="container">
        
     <p class="text-center"><?php echo $producto->descripcion ?></p>

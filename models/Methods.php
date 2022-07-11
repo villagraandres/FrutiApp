@@ -132,7 +132,7 @@ class Methods{
         $query.=" LIMIT 1";
        
        
-      
+        
         $resultado=self::$db->query($query);
         return $resultado;
     }

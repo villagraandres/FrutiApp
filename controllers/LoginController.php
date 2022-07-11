@@ -8,6 +8,12 @@ use Router\Router;
 class LoginController{
 
     public static function login(Router $router){
+        $resultado=l($_GET['resultado'] ?? '');
+
+        if($resultado){
+            $alertas=User::setAlerta('exito','La contraseña ha sido reestablecida correctamente');
+        }
+
         $usuario=new User();
         $alertas=[];
         if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -129,5 +135,75 @@ class LoginController{
     $_SESSION=[];
     header('Location: /');
    }
+   
+   public static function recuperar(Router $router){
+    $alertas=[];
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+      $usuario= new User($_POST);
+     $alertas= $usuario->validarRecuperar();
+     if(empty($alertas)){
+       $usuarioCompleto=User::where('email',$usuario->email);
+     
+       if($usuarioCompleto && $usuarioCompleto->confirmado==="1"){
+        $usuarioCompleto->token();
+        $usuarioCompleto->actualizar();
+        $mail=new mail;
+        $mail->recupear($usuarioCompleto->nombre,$usuarioCompleto->email,$usuarioCompleto->token);
 
+        User::setAlerta('exito','Hemos enviado las instrucciones a tu email');
+       }
+        
+     }
+     
+
+    }
+
+
+    $alertas=User::getAlertas();
+
+    $router->render('principal/recuperar',[
+        'alertas'=>$alertas
+    ]);
+
+   }
+
+   public static function reestablecer(Router $router){
+
+    $alertas=[];
+    $error=false;
+    $token=l($_GET['token']);
+    $usuario=User::where('token',$token);
+
+
+    if(empty($usuario)){
+        User::setAlerta('error','Token No Valido');
+        $error=true;
+    }
+   
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        $password= new User($_POST);
+       $alertas= $password->validarPassword();
+
+       if($password->password===$_POST['password2']){
+        if(empty($alertas)){
+            $usuario->password=null;
+            $usuario->password=$password->password;
+            $usuario->hash();
+            $usuario->token=null;
+           $resultado= $usuario->actualizar();
+           if($resultado){
+            header('Location: /login?resultado=1');
+           }
+           }
+       }else{
+        User::setAlerta('error','Las contraseñas no son iguales');
+       }
+      
+    }
+    $alertas=User::getAlertas();
+    $router->render('principal/reestablecer',[
+        'alertas'=>$alertas,
+        'error'=>$error
+    ]);
+   }
 }

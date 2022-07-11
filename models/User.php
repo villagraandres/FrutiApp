@@ -50,7 +50,24 @@ public function __construct($args=[])
         }
         return self::$alertas;
     }
+    public function validarRecuperar(){
+       
+            if(!$this->email){
+                self::$alertas['error'][]='El Email es Obligatorio';
+            }
+            return self::$alertas;
+    }
 
+    public function validarPassword(){
+       
+        if(!$this->password){
+            self::$alertas['error'][]='La contraseña es obligatoria';
+        }
+        if(strlen($this->password)<6){
+            self::$alertas['error'][]='La contraseña debe tener al menos 6 caracteres';
+        }
+        return self::$alertas;
+}
     
 
     public function existe($correo){
