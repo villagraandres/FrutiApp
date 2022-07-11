@@ -33,7 +33,7 @@
 <div class="container mt-5 brand2">
 
  
-  <p><img src="/build/img/plant.png " alt="" width="50" height="50" class="brand-imagen"> Precios Justos <span class="linea">Buen Servicio</span>  <span>Productos de Calidad</span><img src="/build/img/fruta.png " alt="" width="50" height="50" class="brand-imagen"></p>
+  <p><img src="/build/img/plant.png " alt="" width="50" height="50" class="brand-imagen"> <span class="linea"> Precios Justos</span> <span class="linea">Buen Servicio</span>  <span>Productos de Calidad</span><img src="/build/img/fruta.png " alt="" width="50" height="50" class="brand-imagen"></p>
 </div>
 
 <div class="container mt-5">

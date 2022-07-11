@@ -5,7 +5,7 @@
 <img src="/imagenes/<?php echo $producto->imagen ?>" class="producto-img" alt="...">
     <section class="container">
        
-    <p class="text-center"><?php echo $producto->descripcion ?></p>
+    <p ><?php echo $producto->descripcion ?></p>
   
 <button class="btn btn-primary btn-lg text-white mt-5 AgregarCarrito" id="ordenar">Hacer una orden</button>
 
