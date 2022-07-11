@@ -32,7 +32,7 @@ class AdminController{
         header('Location: /admin?resultado=3');
        }
         }
-     } */
+     } */   
 
       
         
@@ -82,8 +82,10 @@ class AdminController{
            
             $producto->sincronizar($_POST);
         
-            $imagen=$_FILES['imagen'];
+           
             if($_FILES['imagen']['tmp_name']) {
+                $Image=Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
+                $imagen=$_FILES['imagen'];
             $nombreImagen = md5( uniqid()).".jpg";
             
                //Generar nombre
@@ -107,9 +109,9 @@ class AdminController{
 
           
           /* debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
-       
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
- 
+          $Image->save('imagenes/'.$nombreImagen);
+           /*  move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+  */
            $resultado= $producto->crear();
             if($resultado){
                 header('Location: /admin?resultado=1');
@@ -148,21 +150,27 @@ class AdminController{
             $nombreImagen = md5( uniqid()).".jpg";
 
             if($_FILES['imagen']['tmp_name']) {
-
-
-               
-                   //Generar nombre
-                 $Image=Image::make($_FILES['imagen']['tmp_name'])->fit(800,600);
-                 $producto->setImagen($nombreImagen,CARPETA_IMG);
-                 
+                $imagen=$_FILES['imagen'];
+                $nombreImagen = md5( uniqid()).".jpg";
+                $producto->setImagen($nombreImagen,CARPETA_IMG); 
                   
                 }
             
 
             if(empty($alertas)){
                 if($_FILES['imagen']['tmp_name']) {
-                     $Image->save(CARPETA_IMG.$nombreImagen); 
 
+                    $carpetaImagenes = 'imagenes/';
+       
+                if(!is_dir($carpetaImagenes)) {
+                    mkdir($carpetaImagenes);
+                }
+
+                move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+          /* debuguear( $Image->save(CARPETA_IMG.$nombreImagen));  */
+                
+                
+            
                 }
 
               $resultado=  $producto->actualizar();

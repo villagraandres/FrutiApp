@@ -143,7 +143,7 @@ class Methods{
         $resultado=self::$db->query($query);
 
         if($resultado){
-            $this->borrrarImg($ruta);
+            $this->borrarImg($ruta);
             header('Location: /admin/productos');
         }
 
@@ -154,15 +154,19 @@ class Methods{
         $query="DELETE FROM ". static::$tabla." WHERE id=". self::$db->escape_string($this->id) ." LIMIT 1";
         
         $resultado=self::$db->query($query);
+        if($resultado){
+            $this->borrarImg();
+            header('Location: /admin/productos');
+        }
         return $resultado;
 
     }
-    public function borrrarImg($ruta){
-        $existe=file_exists($ruta.$this->imagen);
+    public function borrarImg(){
+        $existe=file_exists('imagenes/'.$this->imagen);
         if($existe){
-            chown(CARPETA_IMG.$this->imagen, 666);
+         
            
-           $result=  unlink($ruta.$this->imagen); 
+           $result=  unlink('imagenes/'.$this->imagen); 
            
         }
     }
@@ -170,10 +174,12 @@ class Methods{
 
       
         if ($this->id) {
-            $existeArchivo=file_exists($ruta.$this->imagen);
+            $existeArchivo=file_exists('imagenes/'.$this->imagen);
             if ($existeArchivo) {
-                chown($ruta.$this->imagen, 666);
-               unlink($ruta.$this->imagen); 
+              
+            
+                
+               unlink('imagenes/'.$this->imagen); 
             }
          }
         if($imagen){

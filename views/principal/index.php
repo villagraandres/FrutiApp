@@ -44,7 +44,7 @@
   foreach ($productosClientes as $productoCliente): ?>
     <div class="col-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-    <img src="/build/imagenes/<?php echo $productoCliente->imagen ?>" class="card-img-top" alt="...">
+    <img src="/imagenes/<?php echo $productoCliente->imagen ?>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><?php echo $productoCliente->nombre ?></h5>
       <p class="card-text"><?php echo $productoCliente->resumen ?></p>
@@ -76,7 +76,7 @@
   foreach ($productosOrganicos as $productoOrganico): ?>
     <div class="col-12 col-md-6 col-lg-4">
     <div class="card" style="width: 18rem;">
-    <img src="/build/imagenes/<?php echo $productoOrganico->imagen ?>" class="card-img-top" alt="...">
+    <img src="/imagenes/<?php echo $productoOrganico->imagen ?>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><?php echo $productoOrganico->nombre ?></h5>
       <p class="card-text"><?php echo $productoOrganico->resumen ?></p>

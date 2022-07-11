@@ -65,6 +65,8 @@ public static function eliminarProducto(){
   if ($_SERVER['REQUEST_METHOD']==='POST') {
     $id=$_POST['id'];
     $orden=Producto::where('id',$id);
+    
+   $orden->borrarImg();
     $orden->eliminarOrden();
     echo json_encode(['resultado'=>$_POST]);
   }
