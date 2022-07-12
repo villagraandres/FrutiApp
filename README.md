@@ -51,7 +51,7 @@ php -S localhost:3000
 
 
 ## Demo
-Creación de productos
+
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/82686244/178617846-e8aa5e37-5145-4f02-a02b-02129acfc241.gif)
 
 
