@@ -41,6 +41,13 @@
             <div class="mb-5">
            <label for="inputPassword5" class="form-label">Password</label>
             <input type="password" id="inputPassword5" class="form-control" name="password" aria-describedby="passwordHelpBlock" >
+            <div id="emailHelp" class="form-text">La contraseña debe ser mayor a 8 caracteres</div>
+            <div class="form-check">
+            <input  class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="myFunction()">
+            <label class="form-check-label" for="flexCheckDefault">
+              Mostrar
+            </label>
+    </div>
             </div>
 
         </fieldset>
@@ -54,3 +61,14 @@
          <input type="submit"  class="btn btn-primary btn-lg text-white" value="Crear">   
     </form>
 </div>
+<script>
+    function myFunction(){
+        var check=document.getElementById("inputPassword5");
+    if (check.type==="password") {
+        check.type="text";
+    }else{
+        check.type = "password";
+    }
+    }
+    
+</script>

@@ -34,7 +34,7 @@ public function __construct($args=[])
         if(!$this->password){
             self::$alertas['error'][]='La Contraseña es Obligatoria';
         }
-        if($this->password<8){
+        if(  strlen( $this->password)<8){
             self::$alertas['error'][]='La Contraseña debe tener al menos 8 caracteres';
         }
 
