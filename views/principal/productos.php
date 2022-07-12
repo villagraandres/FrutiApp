@@ -12,7 +12,7 @@
       <p class="card-text"><?php echo $productoCliente->resumen ?></p>
      
       <p  class="card-title text-success fw-bold card-text fs-4   ">$<?php echo $productoCliente->precio ?></p>
-      <a href="/producto?id=<?php echo $productoCliente->id ?>" class="btn btn-primary text-white text-white ">Go somewhere</a>
+      <a href="/producto?id=<?php echo $productoCliente->id ?>" class="btn btn-primary text-white text-white ">Ver detalles</a>
     </div>
   </div>
   </div>

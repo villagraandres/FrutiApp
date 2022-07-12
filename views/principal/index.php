@@ -33,7 +33,9 @@
 <div class="container mt-5 brand2">
 
  
-  <p><img src="/build/img/plant.png " alt="" width="50" height="50" class="brand-imagen"> <span class="linea"> Precios Justos</span> <span class="linea">Buen Servicio</span>  <span>Productos de Calidad</span><img src="/build/img/fruta.png " alt="" width="50" height="50" class="brand-imagen"></p>
+  <p>
+    <img  src="/build/img/plant.png " alt="" width="50" height="50" class="brand-imagen animacion2"> <span class="linea"> Precios Justos</span> <span class="linea">Buen Servicio</span>  <span>Productos de Calidad</span><img src="/build/img/fruta.png " alt="" width="50" height="50" class="brand-imagen">
+  </p>
 </div>
 
 <div class="container mt-5">
@@ -50,7 +52,7 @@
       <p class="card-text"><?php echo $productoCliente->resumen ?></p>
      
       <p  class="card-title text-success fw-bold card-text fs-4   ">$<?php echo $productoCliente->precio ?></p>
-      <a href="/producto?id=<?php echo $productoCliente->id ?>" class="btn btn-primary text-white text-white ">Go somewhere</a>
+      <a href="/producto?id=<?php echo $productoCliente->id ?>" class="btn btn-primary text-white text-white ">Ver detalles</a>
     </div>
   </div>
   </div>
@@ -81,7 +83,7 @@
       <h5 class="card-title"><?php echo $productoOrganico->nombre ?></h5>
       <p class="card-text"><?php echo $productoOrganico->resumen ?></p>
       <p  class="card-title text-success fw-bold card-text fs-4   ">$<?php echo $productoOrganico->precio ?></p>
-      <a  href="/producto?id=<?php echo $productoOrganico->id ?>" class="btn btn-primary text-white text-white ">Go somewhere</a>
+      <a  href="/producto?id=<?php echo $productoOrganico->id ?>" class="btn btn-primary text-white text-white ">Ver detalles</a>
     </div>
   </div>
   </div>
@@ -95,6 +97,9 @@
 <div class="container mt-5 compromiso-contenedor">
   <h2>Nuestro Compromiso Etico</h2>
   <p>Conoce mas sobre nuestras obras comunitarias</p>
-  <button type="button" class="btn btn-secondary btn-lg text-white">Large button</button>
+  <div class="animacion mt-3">
+    <p class="text-center">Leer más</p>
+  </div>
+
 </div>
 
