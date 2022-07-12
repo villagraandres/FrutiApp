@@ -62,7 +62,7 @@ class mail{
     public function mensaje( string $nombre, string $correo, $mensaje  ){
         $this->mail->setFrom("frutiapptest@gmail.com", "Nuevo Mensaje");
         $this->mail->addAddress("frutiapptest@gmail.com", " Admin");
-        $this->mail->Subject = "Confirmacion de Cuenta";
+        $this->mail->Subject = "Nuevo Mensaje";
 
 
         $contenido="<html>";
@@ -84,7 +84,7 @@ class mail{
     public function recupear( string $nombre, string $correo, $token  ){
         $this->mail->setFrom("frutiapptest@gmail.com", "Creacion de Cuenta");
         $this->mail->addAddress($correo,$nombre);
-        $this->mail->Subject = "Confirmacion de Cuenta";
+        $this->mail->Subject = "Cambio de contraseña";
 
 
         $contenido="<html>";
