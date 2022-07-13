@@ -18,7 +18,7 @@
       
   
     <tr id="producto" data-id="<?php echo $producto->id?>" class="Noselected">
-      <td> <img src="/build/imagenes/<?php echo $producto->imagen?>" class="imagen-tabla img-fluid" alt=""></td>
+      <td> <img src="/imagenes/<?php echo $producto->imagen?>" class="imagen-tabla img-fluid" alt=""></td>
       <td><?php echo $producto->nombre?></td>
       <td> <?php echo $producto->precio?>    </td>
       <td>
