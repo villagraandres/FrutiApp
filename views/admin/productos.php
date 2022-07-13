@@ -47,7 +47,7 @@ use Model\Producto;
 
 
                
-       <button  class="btn btn-danger text-white mt-2 eliminar-orden "  data-producto="<?php echo $producto->id?>"  >Eliminar Orden</button>
+       <button  class="btn btn-danger text-white mt-2 eliminar-orden "  data-producto="<?php echo $producto->id?>"  >Eliminar Producto</button>
       
     </td>
       

@@ -36,7 +36,7 @@
       <th scope="row"><?php echo $usuarios->id ?></td>
       <td><?php echo $usuarios->email ?></td>
       <td>
-      <button  class="btn btn-danger text-white mt-2 eliminar-orden " data-id="<?php echo $usuarios->id?>" >Eliminar Orden</button>
+      <button  class="btn btn-danger text-white mt-2 eliminar-orden " data-id="<?php echo $usuarios->id?>" >Eliminar Cuenta</button>
       </td>
      
     </tr>
