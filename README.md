@@ -6,9 +6,10 @@ CRUD hecho en PHP y JavaScript, simulando un e-commerce de una Fruteria
 ## Features
 
 - Creación de cuenta de usuario
-- Crear ordenes de producros
+- Crear ordenes 
 - Administración de productos
 - Manejo de cuentas de administrador
+- Mnesajes a la administracion por medio de emails
 
 
 ## Run Locally
