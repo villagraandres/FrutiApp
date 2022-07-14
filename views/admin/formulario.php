@@ -55,7 +55,7 @@
             <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen" onchange="return pre() ">
             <div id="visorImg" >
                <?php if($producto->imagen):?>
-                <img src="/build/imagenes/<?php echo $producto->imagen?>" class="imagen-pre mt-4" >
+                <img src="/imagenes/<?php echo $producto->imagen?>" class="imagen-pre mt-4" >
             <?php endif; ?>  
 
             </div>
