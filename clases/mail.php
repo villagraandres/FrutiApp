@@ -12,8 +12,8 @@ class mail{
         $this->mail->SMTPAuth = true;
         $this->mail->Host = "smtp.gmail.com";
         $this->mail->Port = 587;
-        $this->mail->Username = "frutiapptest@gmail.com";
-        $this->mail->Password = "frefjrfunavlrjyq";
+        $this->mail->Username = "frutiapp2@gmail.com";
+        $this->mail->Password = "duwpzoexkvlfwvzs";
     }
 
 
