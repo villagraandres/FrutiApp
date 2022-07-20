@@ -2,7 +2,7 @@
     <h2 class="text-center">Reestablecer Contraseña</h2>
     <p>Modifica tu contraseña</p>
 
-
+    <?php if($error) return?>
     <form method="POST" class="mt-4">
     <?php include_once __DIR__ . "/../templates/alertas.php";?>
 
