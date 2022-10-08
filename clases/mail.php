@@ -11,7 +11,7 @@ class mail{
         $this->mail = new PHPMailer();
         $this->mail->isSMTP();
         $this->mail->SMTPAuth = true;
-        $this->mail->Host = $_ENV['EMAIL_HOST'] ;
+        $this->mail->Host = $_ENV['EMAIL_HOST'];
         $this->mail->Port = $_ENV['EMAIL_PORT'];
         $this->mail->Username =  $_ENV['EMAIL_USER'];
         $this->mail->Password = $_ENV['EMAIL_PASS'] ;
@@ -20,6 +20,7 @@ class mail{
 
 
     public function metEnviar( string $nombre, string $correo, $token  ){
+        debuguear($this->mail);
         $this->mail->setFrom("frutiapp2@gmail.com", "Creacion de Cuenta");
         $this->mail->addAddress($correo,$nombre);
         $this->mail->Subject = "Confirmacion de Cuenta";
