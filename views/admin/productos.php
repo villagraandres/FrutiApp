@@ -19,7 +19,7 @@ use Model\Producto;
       <th scope="col">id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Imagen</th>
-      <th scope="col">Precio</th>
+      <th scope="col">Precio</th> 
       <th scope="col">Seccion</th>
       <th scope="col">Acciones</th>
     </tr>
