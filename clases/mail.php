@@ -13,15 +13,7 @@ class mail{
 
     public function metEnviar( string $nombre, string $correo, $token  ){
         
-        $this->mail = new PHPMailer();
-        $this->mail->isSMTP();
-        $this->mail->SMTPAuth = true;
-        $this->mail->Host = $_ENV['EMAIL_HOST'];
-        $this->mail->Port = $_ENV['EMAIL_PORT'];
-        $this->mail->Username =  $_ENV['EMAIL_USER'];
-        $this->mail->Password = $_ENV['EMAIL_PASS'] ;
-        $this->SMTPSecure=PHPMailer::ENCRYPTION_SMTPS;
-        
+ 
         $this->mail->setFrom("frutiapp2@gmail.com", "Creacion de Cuenta");
         $this->mail->addAddress($correo,$nombre);
         $this->mail->Subject = "Confirmacion de Cuenta";
@@ -30,7 +22,6 @@ class mail{
         $contenido.="<p>Visita la siguiente pagina: <a href='http://".$_SERVER['HTTP_HOST']."/confirmar?token=".$token."'>Confirmar</a> </p> ";
         $contenido.="<p>Si tu no solicitaste esta cuenta, ignora el mensaje</p>";
         $contenido.="</html>";
-        debuguear($this->mail);
      
 
         $this->mail->Body = $contenido;
